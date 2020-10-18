@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_scratsh_with_max/widget/answer.dart';
+import 'package:flutter_form_scratsh_with_max/widget/answer_condition.dart';
 import 'package:flutter_form_scratsh_with_max/widget/questionIndex.dart';
+import 'package:flutter_form_scratsh_with_max/widget/quiz_condition.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -9,7 +11,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _questionIndex = 0;
-  static const question = [
+  static const _question = [
     {
       'question': 'what\'s your name ?',
       'answer': ['mahmoud', 'ali', 'khaled'],
@@ -49,35 +51,13 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text("Frist APP"),
       ),
-      body: _questionIndex < question.length
-          ? Column(
-              children: [
-                Question(question[_questionIndex]['question']),
-                // 23 vdieo
-                ...((question[_questionIndex]['answer']) as List<String>)
-                    .map((e) {
-                  return Answer(_changeQuestion, e);
-                }).toList()
-              ],
+      body: _questionIndex < _question.length
+          ? QuizCondition(
+              answerGuestion: _changeQuestion,
+              question: _question,
+              questionIndex: _questionIndex,
             )
-          : Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        _questionIndex = 0;
-                      });
-                    },
-                    child: Icon(
-                      Icons.done_outline,
-                      color: Colors.green,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+          : AnswerCondition(questionIndex: _questionIndex,)
     );
   }
 }
