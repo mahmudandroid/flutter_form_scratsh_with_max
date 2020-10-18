@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import './answer.dart';
-import './questionIndex.dart';
+import 'package:flutter_form_scratsh_with_max/widget/answer.dart';
+import 'package:flutter_form_scratsh_with_max/widget/questionIndex.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -62,21 +62,22 @@ class _MyHomePageState extends State<MyHomePage> {
             )
           : Center(
               child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      _questionIndex = 0;
-                    });
-                  },
-                  child: Icon(
-                    Icons.done_outline,
-                    color: Colors.green,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _questionIndex = 0;
+                      });
+                    },
+                    child: Icon(
+                      Icons.done_outline,
+                      color: Colors.green,
+                    ),
                   ),
-                ),
-              ],
-            )),
+                ],
+              ),
+            ),
     );
   }
 }

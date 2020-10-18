@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Quiz extends StatelessWidget {
+class QuizCondition extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container();
